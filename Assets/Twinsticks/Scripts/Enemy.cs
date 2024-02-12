@@ -17,10 +17,6 @@ public class Enemy : MonoBehaviour
         hp = maxHp;
     }
 
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {

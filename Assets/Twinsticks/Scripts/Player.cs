@@ -39,11 +39,6 @@ public class Player : MonoBehaviour
         canShoot = true;
     }
 
-    void Update()
-    {
-        ReloadWeapon();
-    }
-
     private void FixedUpdate()
     {
         Move();
@@ -57,43 +52,25 @@ public class Player : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext context)
     {
-        if (canShoot)
+        string buttonName = context.control.name;
+
+        switch (buttonName)
         {
-            string buttonName = context.control.name;
+            case "upArrow":
+                Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 90));
+                break;
 
-            switch (buttonName)
-            {
-                case "upArrow":
-                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 90));
-                    break;
+            case "downArrow":
+                Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, -90));
+                break;
 
-                case "downArrow":
-                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, -90));
-                    break;
+            case "leftArrow":
+                Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+                break;
 
-                case "leftArrow":
-                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
-                    break;
-
-                case "rightArrow":
-                    Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                    break;
-            }
-        }
-
-        canShoot = false;
-    }
-
-    private void ReloadWeapon()
-    {
-        if (fireRate > 0 && !canShoot)
-        {
-            fireRate -= Time.deltaTime;
-        }
-        else
-        {
-            canShoot = true;
-            fireRate = reloadTime;
+            case "rightArrow":
+                Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                break;
         }
     }
 }
