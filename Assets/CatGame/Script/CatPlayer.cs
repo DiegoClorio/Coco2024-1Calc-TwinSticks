@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CatPlayer : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class CatPlayer : MonoBehaviour
     private Rigidbody2D rb;
 
     public List<Transform> catList = new List<Transform>();
+
+    public TMP_Text scoreText;
+    public CatSpawner spawner;
+
+    private int score;
 
     private void Awake()
     {
@@ -30,6 +36,7 @@ public class CatPlayer : MonoBehaviour
     private void Start()
     {
         playerInputActions.Enable();
+        score = 0;
     }
 
     private void FixedUpdate()
@@ -62,6 +69,12 @@ public class CatPlayer : MonoBehaviour
 
                 collision.transform.GetComponent<CatScript>().catCollected = true;
                 catList.Add(currentCat);
+                score++;
+                scoreText.text = "Score: " + score;
+                if (score % 1000 == 0)
+                {
+                    spawner.timeBetweenCats--;
+                }
             }
             
         }

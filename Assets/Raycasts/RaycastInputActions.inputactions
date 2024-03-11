@@ -1,0 +1,54 @@
+{
+    "name": "RaycastInputActions",
+    "maps": [
+        {
+            "name": "Standard",
+            "id": "e27fca5c-1344-4e43-a831-b0d1e45ac18a",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "787f38dd-9a3a-4167-8c8f-0a1bdcc73bee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "038cd02e-a00b-4952-8ce4-56f2934fdd3f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9137f3e7-39c0-4d5e-b9d7-b2cf6de0b472",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac9e5031-1840-4410-8c99-058a671b2995",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
